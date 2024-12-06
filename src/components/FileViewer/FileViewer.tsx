@@ -55,7 +55,7 @@ const FileViewer = () => {
         <section className={styles.file_viewer}>
             <header className={styles.controls}>
                 {breadcrumbs.length > 0 && (
-                    <button onClick={handleBreadcrumbClick} className={styles.backButton}>
+                    <button onClick={handleBreadcrumbClick} className={styles.back_button}>
                         Back
                     </button>
                 )}

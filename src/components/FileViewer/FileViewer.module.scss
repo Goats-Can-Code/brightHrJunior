@@ -5,4 +5,21 @@
     padding: 3rem;
     margin-inline: auto;
     border-radius: 1rem;
+    header {
+        text-align: left;
+        .back_button {
+            margin-bottom: 2rem;
+            border: none;
+            padding: 1rem 2rem;
+            background: #4faadf;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.search_and_sort {
+    display: flex;
+    gap: 2rem;
 }
