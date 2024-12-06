@@ -32,11 +32,9 @@ const FileViewer = () => {
         }
     }
 
-    const renderFiles = (filesToRender: File[]) => {
-        return filesToRender.map((file, index) => (
-            <FileDisplay key={index} {...file} />
-        ));
-    };
+    const filteredFiles = files.filter(file =>
+        file.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <section className={styles.FileViewer}>
@@ -46,9 +44,18 @@ const FileViewer = () => {
                         Back
                     </button>
                 )}
+                <div className={styles.search_and_sort}>
+                <input
+                    type="text"
+                    placeholder="Search by filename"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className={styles.searchInput}
+                />
+                </div>
             </header>
             <section className={styles.filesList}>
-                {files.map((file, index) => (
+                {filteredFiles.map((file, index) => (
                     <FileDisplay
                         key={`${file.name}-${index}`}
                         type={file.type}
