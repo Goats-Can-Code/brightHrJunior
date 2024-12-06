@@ -1,0 +1,13 @@
+.file_display {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    &.folder {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &:nth-child(odd) {
+        background: #efefef;
+    }
+}
