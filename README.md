@@ -14,7 +14,13 @@ Followed by:
 cd brightHrJunior
 ```
 
-From here you can run the unit tests with the following command:
+The next stage will be to install the dependances using:
+
+```
+npm install
+```
+
+Once this is finished you can run the unit tests with the following command:
 
 ```
 npm test
