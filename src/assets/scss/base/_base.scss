@@ -1,0 +1,10 @@
+html {
+    font-size: 62.5%; // Makes 1rem == 10px to make calculations easier
+    &, body {
+        height:100%;
+    }
+}
+
+body {
+    font-size: 1.6rem; // Sets the body font size back to 16px, the same as most browsers defaults
+}
