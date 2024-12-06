@@ -2,7 +2,7 @@ import { useState } from 'react';
 import FileDisplay from '../FileDisplay/FileDisplay';
 import filesData from '../../data/filesData';
 import { File } from '../../types/fileTypes';
-import styles from './FireViewer.module.scss';
+import styles from './FileViewer.module.scss';
 
 const FileViewer = () => {
     const [files, setFiles] = useState<File[]>(filesData);
