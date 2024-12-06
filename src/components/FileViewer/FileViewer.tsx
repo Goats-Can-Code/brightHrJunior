@@ -7,6 +7,8 @@ import styles from './FileViewer.module.scss';
 const FileViewer = () => {
     const [files, setFiles] = useState<File[]>(filesData);
     const [breadcrumbs, setBreadcrumbs] = useState<string[]>([]);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [sortOption, setSortOption] = useState<'name' | 'added' | 'type'>('name');
 
     const handleFolderClick = (folderFiles: File[], folderName: string) => {
         setFiles(folderFiles);
