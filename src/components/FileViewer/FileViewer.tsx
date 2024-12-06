@@ -36,8 +36,23 @@ const FileViewer = () => {
         file.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    const sortedFiles = filteredFiles.sort((a, b) => {
+        if (sortOption === 'name') {
+            return a.name.localeCompare(b.name);
+        }
+        if (sortOption === 'added') {
+            const dateA = a.added ? new Date(a.added).getTime() : 0;
+            const dateB = b.added ? new Date(b.added).getTime() : 0;
+            return dateA - dateB;
+        }
+        if (sortOption === 'type') {
+            return a.type.localeCompare(b.type);
+        }
+        return 0;
+    });
+
     return (
-        <section className={styles.FileViewer}>
+        <section className={styles.file_viewer}>
             <header className={styles.controls}>
                 {breadcrumbs.length > 0 && (
                     <button onClick={handleBreadcrumbClick} className={styles.backButton}>
@@ -45,17 +60,26 @@ const FileViewer = () => {
                     </button>
                 )}
                 <div className={styles.search_and_sort}>
-                <input
-                    type="text"
-                    placeholder="Search by filename"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className={styles.searchInput}
-                />
+                    <input
+                        type="text"
+                        placeholder="Search by filename"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className={styles.searchInput}
+                    />
+                    <select
+                        value={sortOption}
+                        onChange={(e) => setSortOption(e.target.value as 'name' | 'added' | 'type')}
+                        className={styles.sortSelect}
+                    >
+                        <option value="name">Sort by Name</option>
+                        <option value="added">Sort by Date Added</option>
+                        <option value="type">Sort by Type</option>
+                    </select>
                 </div>
             </header>
             <section className={styles.filesList}>
-                {filteredFiles.map((file, index) => (
+                {sortedFiles.map((file, index) => (
                     <FileDisplay
                         key={`${file.name}-${index}`}
                         type={file.type}
