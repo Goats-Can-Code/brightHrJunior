@@ -2,7 +2,7 @@
 
 ## Setup
 
-In order to access the project, navigate to your preferred folder and run 
+In order to access the project, navigate to your preferred folder and run
 
 ```
 git@github.com:djmahony/brightHrJunior.git
@@ -39,12 +39,23 @@ With more time I would have updated more of the styles, and also I would have cr
 ## Quality Gates
 
 This repository includes:
+
 - `.gitignore` to keep build artifacts and local state out of version control
 - ESLint + Prettier for consistency
 - Husky pre-commit hook that runs lint-staged and unit tests
 - Added behavior tests for FileViewer (search, sort, breadcrumbs)
 
+## API Endpoints (BrightHR kata)
+
+This app includes a tiny API layer in `src/api/`:
+
+- `GET /api/absences` → `fetchAbsences()`
+- `GET /api/conflict/{id}` → `fetchConflict(id)`
+
+Both functions use a minimal `getJson()` helper, throw on non-2xx responses, and are covered by unit tests with a mocked `fetch`.
+
 **Common commands**
+
 ```bash
 npm install
 npm run prepare   # sets up Husky

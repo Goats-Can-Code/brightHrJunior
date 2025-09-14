@@ -8,8 +8,8 @@
     "@types/node": "^16.18.121",
     "@types/react": "^18.3.14",
     "@types/react-dom": "^18.3.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-scripts": "5.0.1",
     "sass": "^1.82.0",
     "typescript": "^4.9.5",
@@ -23,7 +23,8 @@
     "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
     "format": "prettier --write .",
     "prepare": "husky",
-    "precommit:test": "react-scripts test --watchAll=false"
+    "precommit:test": "react-scripts test --watchAll=false",
+    "typecheck": "tsc --noEmit"
   },
   "eslintConfig": {
     "extends": [
@@ -65,5 +66,15 @@
     "*.{json,css,scss,md}": [
       "prettier --write"
     ]
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 60,
+        "functions": 70,
+        "lines": 75,
+        "statements": 75
+      }
+    }
   }
 }

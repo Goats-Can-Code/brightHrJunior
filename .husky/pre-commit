@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running lint-staged…"
+npx lint-staged || exit 1
+
+echo "Running unit tests…"
+npm run precommit:test
