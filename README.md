@@ -35,3 +35,19 @@ npm start
 ## Improvements
 
 With more time I would have updated more of the styles, and also I would have created other components to handle the Sort/Filter and Breadcrumbs. I would also build unit tests around the sorting and filtering of the files
+
+## Quality Gates
+
+This repository includes:
+- `.gitignore` to keep build artifacts and local state out of version control
+- ESLint + Prettier for consistency
+- Husky pre-commit hook that runs lint-staged and unit tests
+- Added behavior tests for FileViewer (search, sort, breadcrumbs)
+
+**Common commands**
+```bash
+npm install
+npm run prepare   # sets up Husky
+npm run lint
+npm run test
+```
